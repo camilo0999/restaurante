@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Gourmet</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            line-height: 1.6; /* Mejora la legibilidad */
+        }
+
+        header {
+            background-color: #1d1b1b;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, color 0.3s; /* Agrega transición suave */
+        }
+
+        nav a:hover {
+            background-color: #f4a261;
+            border-radius: 5px;
+        }
+
+        /* Estilo del banner */
+        .banner {
+            background: url('/Img/860f5a09739c2bb5f4a3627252f9a24775b9d016-2000x1113.webp') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 4rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 1.5rem 3rem;
+            border-radius: 10px;
+        }
+
+        /* Sección de bienvenida */
+        .welcome {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .welcome h2 {
+            font-size: 2.5rem;
+        }
+
+        .welcome p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Estilo del menú de platos */
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            padding: 3rem;
+            background-color: #f8f9fa;
+        }
+
+        .menu-item {
+            text-align: center;
+            max-width: 200px;
+            transition: transform 0.3s; /* Efecto de elevación al pasar el mouse */
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+        }
+
+        .menu-item img {
+            width: 300px;  /* Mantiene el ancho automático */
+            height: 300px; /* Establece una altura fija de 300px */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            margin-top: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .menu-item p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Estilo del formulario de reservaciones */
+        .reservaciones {
+            background-color: #1d1b1b;
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .reservaciones h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .reservaciones form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .reservaciones input, .reservaciones select, .reservaciones button {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .reservaciones input, .reservaciones select {
+            background-color: #f8f9fa;
+        }
+
+        .reservaciones button {
+            background-color: #f4a261;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Agrega transición suave */
+        }
+
+        .reservaciones button:hover {
+            background-color: #e76f51;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Estilos para botones personalizados */
+        .button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #f4a261;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Elimina el subrayado del enlace */
+            font-size: 1rem;
+            margin-top: 1rem; /* Espaciado arriba */
+            transition: background-color 0.3s; /* Efecto de transición */
+        }
+
+        .button:hover {
+            background-color: #e76f51; /* Color al pasar el mouse */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Restaurante Gourmet</h1>
+        <nav>
+            <a href="/publico/inicio">Inicio</a>
+            <a href="/publico/menu">Menú</a>
+            <a href="/publico/login">Login</a>
+            <a href="/publico/paginaRegistro">Registro</a>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner" id="inicio">
+        <h1>Bienvenidos a Restaurante Gourmet</h1>
+    </div>
+
+    <!-- Sección de bienvenida -->
+    <section class="welcome">
+        <h2>La mejor experiencia culinaria</h2>
+        <p>En Restaurante Gourmet, creamos platos excepcionales con ingredientes frescos, preparados por chefs expertos. Vive una experiencia gastronómica que deleitará tus sentidos.</p>
+    </section>
+
+    <!-- Menú destacado -->
+    <section class="menu" id="menu">
+        <div th:each="plato : ${platosList}" class="menu-item">
+            <img th:src="@{${plato.imagen}}" alt="Plato de [[${plato.nombre}]]">
+            <h3 th:text="${plato.nombre}">Nombre del Plato</h3>
+            <p th:text="${#numbers.formatDecimal(plato.precio, 2, 'COMMA', 2, 'POINT')}">Precio del Plato</p>
+            
+            <!-- Botón para ir a la página del plato -->
+            <a th:href="@{/platos/ver/{id}(id=${plato.id})}" class="button">Ver Detalles</a>
+        </div>
+    </section>
+    
+    
+
+    <!-- Pie de página -->
+    <footer id="contacto">
+        <p>&copy; 2024 Restaurante Gourmet. Todos los derechos reservados.</p>
+        <p>Contacto: +57 123 456 789 | Calle Falsa 123, Ciudad de Ejemplo, Colombia</p>
+    </footer>
+</body>
+</html>

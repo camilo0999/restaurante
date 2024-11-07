@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de enlazar tu archivo CSS -->
+    <title>Ver Plato</title>
+</head>
+<body>
+    <header>
+        <h1>Detalles del Plato</h1>
+    </header>
+
+    <main class="plato-details">
+        <div class="plato-container">
+            <div class="plato-image">
+                <img th:src="@{${plato.imagen}}" alt="Imagen de [[${plato.nombre}]]" style="height: 300px; object-fit: cover; border-radius: 10px;">
+            </div>
+            <div class="plato-info">
+                <h2 th:text="${plato.nombre}">Nombre del Plato</h2>
+                <p class="precio" th:text="${#numbers.formatDecimal(plato.precio, 2, 'COMMA', 2, 'POINT')}">Precio del Plato</p>
+                <p class="categoria" th:text="${plato.categoria}">Categoría</p>
+                
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="/publico/menu" class="button">Volver al Menú</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Restaurante</p>
+    </footer>
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+        header {
+            background-color: #1d1b1b;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        .plato-details {
+            padding: 2rem;
+            text-align: center;
+        }
+        .plato-container {
+            display: flex; /* Utiliza flexbox para alinear imagen y detalles */
+            justify-content: space-between; /* Espacio entre imagen y detalles */
+            align-items: flex-start; /* Alinea los elementos al inicio */
+            margin: 0 auto;
+            max-width: 800px; /* Ajusta el ancho máximo de la sección */
+        }
+        .plato-image {
+            flex: 1; /* Imagen ocupa una parte igual del espacio */
+            max-width: 300px; /* Ancho máximo para la imagen */
+        }
+        .plato-info {
+            flex: 2; /* Detalles ocupan el doble del espacio de la imagen */
+            padding-left: 2rem; /* Espaciado a la izquierda para separar del texto */
+            text-align: left; /* Alinea el texto a la izquierda */
+        }
+        .plato-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .plato-info h2 {
+            font-size: 2rem; /* Aumenta el tamaño del título */
+            margin-bottom: 0.5rem; /* Espacio inferior */
+        }
+        .plato-info .precio {
+            font-size: 1.5rem; /* Aumenta el tamaño del precio */
+            color: #f4a261; /* Cambia el color del precio */
+            margin: 0.5rem 0; /* Espacio alrededor del precio */
+        }
+        .plato-info .categoria,
+        .plato-info .descripcion {
+            font-size: 1.2rem; /* Tamaño de texto para categoría y descripción */
+            margin: 0.5rem 0; /* Espaciado alrededor */
+        }
+        .button-container {
+            margin-top: 2rem;
+        }
+        .button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #f4a261;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #e76f51;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</body>
+</html>

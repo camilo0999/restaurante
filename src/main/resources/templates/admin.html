@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin Restaurante</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Estilos del sidebar */
+        .sidebar {
+            background-color: #2d3142;
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            color: white;
+        }
+        .sidebar h2 {
+            color: #f4a261;
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: #f4a261;
+            border-radius: 5px;
+        }
+
+        /* Estilos del contenido principal */
+        .main-content {
+            margin-left: 250px; /* Este valor es igual al ancho del sidebar */
+            padding: 20px;
+            background-color: #f8f9fa;
+            position: relative; /* Añadir esta propiedad */
+            min-height: 100vh; /* Asegura que el contenido siempre ocupe toda la altura de la pantalla */
+            overflow: auto; /* Permite que el contenido se desplace si es más grande que la pantalla */
+        }
+
+        .main-content h1 {
+            color: #2d3142;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dashboard-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: calc(33% - 40px);
+            text-align: center;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #2d3142;
+        }
+        .card p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            left: 250px;
+            width: calc(100% - 250px);
+            background-color: #2d3142;
+            color: white;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+            footer {
+                left: 0;
+                width: 100%;
+            }
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra lateral (Sidebar) -->
+    <div class="sidebar">
+        <h2>Admin Restaurante</h2>
+        <ul>
+            <li><a href="/admin/inicio">Panel Principal</a></li>
+            <li><a href="/admin/empleados">Gestion de Empleados</a></li>
+            <li><a href="/admin/clientes">Administracion de Clientes</a></li>
+            <li><a href="/admin/pedidos">Gestion de Pedidos</a></li>
+            <li><a href="/admin/platos">Gestion de Platos</a></li>
+            <li><a href="/publico/inicio">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <h1>Bienvenido al Dashboard</h1>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3>Reservas Pendientes</h3>
+                <p>24</p>
+            </div>
+            <div class="card">
+                <h3>Total de Clientes</h3>
+                <p>153</p>
+            </div>
+            <div class="card">
+                <h3>Platos en el Menú</h3>
+                <p>45</p>
+            </div>
+            <div class="card">
+                <h3>Ventas de la Semana</h3>
+                <p>$5,430,000 COP</p>
+            </div>
+            <div class="card">
+                <h3>Comentarios Recientes</h3>
+                <p>18</p>
+            </div>
+            <div class="card">
+                <h3>Reportes Generados</h3>
+                <p>5</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Restaurante Gourmet. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>
+

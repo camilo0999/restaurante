@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Platos</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            background-color: #f0f0f0; /* Color de fondo suave */
+        }
+
+        header {
+            background-color: #1d1b1b;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 1.1rem;
+            transition: background-color 0.3s; /* Transición en el hover */
+        }
+
+        nav a:hover {
+            background-color: #f4a261;
+            border-radius: 5px;
+        }
+
+        /* Sección de la galería */
+        .menu-section {
+            padding: 3rem 1rem;
+            background-color: #f8f9fa; /* Fondo claro para la sección */
+            text-align: center;
+        }
+
+        .menu-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333; /* Color del título */
+        }
+
+        /* Galería de platos */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajuste para más flexibilidad */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            padding: 1rem; /* Espaciado interno */
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+        }
+
+        .gallery-item h3 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            color: #333; /* Color del nombre del plato */
+        }
+
+        .gallery-item p {
+            font-size: 1rem;
+            color: #666;
+            padding: 0 0.5rem 1rem;
+        }
+
+        /* Botón para ver detalles */
+        .button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #f4a261;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Elimina el subrayado del enlace */
+            font-size: 1rem;
+            margin-top: 1rem; /* Espaciado arriba */
+            transition: background-color 0.3s; /* Efecto de transición */
+        }
+
+        .button:hover {
+            background-color: #e76f51; /* Color al pasar el mouse */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Restaurante La Delicia</h1>
+        <nav>
+            <a href="/publico/inicio">Inicio</a>
+            <a href="/publico/menu">Menú</a>
+            <a href="/publico/login">Login</a>
+            <a href="/publico/paginaRegistro">Registro</a>
+        </nav>
+    </header>
+
+    <!-- Sección de la galería de platos -->
+    <section id="menuPlatos" class="menu-section">
+        <h2>Galería de Platos</h2>
+        <div class="gallery">
+            <div th:each="plato : ${platosList}" class="gallery-item">
+                <img th:src="@{${plato.imagen}}" alt="Plato de [[${plato.nombre}]]">
+                <h3 th:text="${plato.nombre}">Nombre del Plato</h3>
+                <p th:text="${plato.precio}">Precio</p>
+                <a th:href="@{/platos/ver/{id}(id=${plato.id})}" class="button">Ver Detalles</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2024 Restaurante La Delicia. Todos los derechos reservados.</p>
+        <p>Diseñado por tu nombre</p>
+    </footer>
+
+</body>
+</html>
